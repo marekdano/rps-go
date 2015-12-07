@@ -13,31 +13,37 @@
 $things = {"rock" => 0, "paper" => 1, "scissors" => 2}
 
 def start_game
-  puts "Start to play you have 10 chances to beat the computer!!!"
-  puts "If you want to stop early, hit space during the game."
-  space = nil
-  i = 0
-  while i < 10 || space != " " 
-    puts "Choose rock or paper or scissors"
-    user = gets.chomp
+  puts "Start to play. You have 10 chances to beat the computer!!!"
 
-    while $things.has_value? user == false
-      puts "You didn't choose the right choice. Choose please rock or paper or scissors"
-      user = gets.chomp
-    end
-
-    get_winner computer_choice, $things[user]
+  i = 10
+  while i > 0
+    puts "If you want to stop early, hit space and enter OR just enter to continue."
+    space = gets.chomp 
     
-    puts "If you want to stop early, hit space."
-    space = gets.chomp
     if space == " "
       puts "Game is over"
       break
     end
 
-    i=i+1
+    puts "Choose rock or paper or scissors"
+    user = gets.chomp
 
+    until $things.has_key? user
+      puts "You didn't choose the right choice. Choose please rock or paper or scissors"
+      user = gets.chomp
+    end
+
+    puts " "
+    get_winner computer_choice, $things[user]
+
+    count_left = i-1
+    puts "#{count_left} attemps left"
+    puts " "
+    
+
+    i -= 1
   end
+  puts "Game is really over!!!"  
 end
 
 def computer_choice 
@@ -68,11 +74,5 @@ def get_winner computer, user
 end
 
 start_game
-#computer = random_num.rand(0..2)
-#user = random_num.rand(0..2)
 
-#puts "computer: #{things.key(computer)} user: #{things.key(user)}"
-
-
-#get_winner computer, user
 
