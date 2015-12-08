@@ -74,5 +74,3 @@ def get_winner computer, user
 end
 
 start_game
-
-
