@@ -1,0 +1,17 @@
+<h1>Hi, <%= @player_name %>! Good luck!!!</h1>
+
+<h3>Choose rock, paper, scissors and hit Enter key</h3>
+
+<%= form_tag('play', method: "get", class: "form-inline", role: "choose subject") do %>
+  <div class="form-group">
+    <%= hidden_field_tag(:name, @player_name) %>
+    <%= hidden_field_tag(:wins, @wins) %>
+    <%= hidden_field_tag(:losses, @losses) %>
+    <%= text_field_tag(:item, "", class: "form-control", placeholder: "rock or paper or scissors") %>
+  </div>
+<% end %>
+
+<h5>User: <%= @user %> Computer: <%= @computer %></h5>
+<h4>You've <%= @result %></h4>
+<h5><%= @player_name %> <%= @wins %> : Computer <%= @losses %></h5>
+
