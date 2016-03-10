@@ -13,8 +13,8 @@ class GameController < ApplicationController
     if params.has_key?(:wins) && params.has_key?(:losses)
       wins = params[:wins].to_i
       losses = params[:losses].to_i
-      @user = params[:item]
-      user_by_number = get_items[params[:item]]
+      user_by_number = params[:item].to_i
+      @user = get_items.key(user_by_number)
       computer_by_number = computer_choice
       @computer = get_items.key(computer_by_number)
       @result = get_winner computer_by_number, user_by_number, wins, losses  
