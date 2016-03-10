@@ -3,35 +3,42 @@ class GameController < ApplicationController
   def index
   end
 
-  def start 
-    @player_name 
+  def play 
+    @player_name = params[:user_name]
+
+    @wins = params[:wins].to_i
+    @losses = params[:losses].to_i
   end
 
-  def play 
-    @player_name = params[:name]
-    
+  def compare
+    @player_name = params[:user_name]
+
     if params.has_key?(:wins) && params.has_key?(:losses)
       wins = params[:wins].to_i
       losses = params[:losses].to_i
-      user_by_number = params[:item].to_i
-      @user = get_items.key(user_by_number)
+      @user = params[:image]
+      user_by_number = get_items[@user]
       computer_by_number = computer_choice
       @computer = get_items.key(computer_by_number)
+
       @result = get_winner computer_by_number, user_by_number, wins, losses  
       if @result === "won"
         @wins = wins + 1
         @losses = losses
+        @result_string = "You win!!! Congratulation!!!"
       elsif @result === "lost"
         @losses = losses + 1
         @wins = wins
+        @result_string = "You lost :("
       else
         @wins = wins
         @losses = losses
+        @result_string = @result
       end
-
     end
   end
   
+
   private
 
   def get_items 
@@ -50,6 +57,9 @@ class GameController < ApplicationController
     # paper - scissors  1 - 2 = -1 loses
     # scissors - paper  2 - 1 = 1  wins
     # scissors - rock   2 - 0 = 2  loses
+
+    puts "Computer: #{computer}"
+    puts "User: #{user}"
 
     if [-2,1].include? (computer - user)
       puts "You lost :("

@@ -1,0 +1,23 @@
+<h1><%= @result_string%></h1>
+
+<div class="row">
+  <div class="col-xs-6 text-right">
+    <h5><%= @player_name %></h5>
+    <%= image_tag "#{@user}.jpg", class: "img-responsive img-style" %> 
+    <h2><%= @wins %></h2>
+  </div>  
+  <div class="col-xs-6 text-left">
+    <h5>Computer</h5>
+    <%= image_tag "#{@computer}.jpg", class: "img-responsive img-style" %>
+    <h2><%= @losses %></h2>
+  </div>
+</div>
+
+<%= form_tag('play', method: "get", class: "form-inline", role: "choose subject") do %>
+  <%= hidden_field_tag(:user_name, @player_name) %>
+  <%= hidden_field_tag(:wins, @wins) %>
+  <%= hidden_field_tag(:losses, @losses) %>
+  <%= button_tag "Play", class: "btn btn-default" %>
+<% end %>
+
+<%= link_to "Exit", root_path, class: "btn btn-default" %>

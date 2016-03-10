@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img.img-style {
+.img-style {
   max-width: 200px;
+  display: inline-block;
+}
+
+form.form-inline {
   display: inline-block;
 }

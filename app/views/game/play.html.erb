@@ -1,31 +1,21 @@
-<h1>Hi, <%= @player_name %>! Good luck!!!</h1>
+<h1>Hi, <%= @player_name %>!</h1>
 
-<h3>Choose rock, paper, scissors and hit Enter key</h3>
+<h3>Choose rock, paper, scissors by clicking on an image</h3>
 
-<%= form_tag('play', method: "get", class: "form-inline", role: "choose subject") do %>
+<%= form_tag('compare', method: "get", class: "form-inline", role: "choose subject") do %>
   <div class="row">
     <div class="col-md-12">
-      <%= image_tag("rock.jpg", class: "img-style img-responsive", id: 0) %>
-      <%= image_tag("paper.jpg", class: "img-style img-responsive", id: 1) %>
-      <%= image_tag("scissors.jpg", class: "img-style img-responsive", id: 2) %>
+      <%= image_submit_tag("rock.jpg", class: "img-style img-responsive", name: "image", value: "rock") %>
+      <%= image_submit_tag("paper.jpg", class: "img-style img-responsive", name: "image", value: "paper") %>
+      <%= image_submit_tag("scissors.jpg", class: "img-style img-responsive", name: "image", value: "scissors") %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= hidden_field_tag(:name, @player_name) %>
-    <%= hidden_field_tag(:wins, @wins) %>
-    <%= hidden_field_tag(:losses, @losses) %>
-    <select name="item" onchange="this.form.submit()">
-      <option value="">Select item...</option>
-      <option value="0">rock</option>
-      <option value="1">paper</option>
-      <option value="2">scissors</option>
-    </select>
-    
-  </div>
-<% end %>
+  <%= hidden_field_tag(:user_name, @player_name) %>
+  <%= hidden_field_tag(:wins, @wins) %>
+  <%= hidden_field_tag(:losses, @losses) %>
 
-<h5>User: <%= @user %> Computer: <%= @computer %></h5>
-<h4>You've <%= @result %></h4>
-<h5><%= @player_name %> <%= @wins %> : Computer <%= @losses %></h5>
+<% end %>
+ <h1>Good luck!!!</h1>
+
 

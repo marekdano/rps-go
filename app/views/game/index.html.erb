@@ -1,11 +1,11 @@
 <h1>Play Rock, Paper, Scissors game</h1>
 <h4>This game plays against computer</h4>
 
-<h3>Please enter your name to continue playing</h3>
+<h3>Please enter your name to play</h3>
 
 <%= form_tag('play', method: 'get', class: "form-inline", role: "player-name") do %>
   <div class="form-group">
-    <%= text_field_tag(:name, "", class: "form-control", placeholder: "Enter your name...") %>
+    <%= text_field_tag(:user_name, "", class: "form-control", placeholder: "Enter your name...") %>
     <%= button_tag("Send", class: "btn btn-default") %>  
   </div>
 <% end %>
