@@ -1,14 +1,17 @@
-<h1>Hi, <%= @player_name %>!</h1>
-
+<h1 class="title">Hi, <%= @player_name %>!</h1>
 <h3>Choose rock, paper, scissors by clicking on an image</h3>
 
 <%= form_tag('compare', method: "get", class: "form-inline", role: "choose subject") do %>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-4">
       <%= image_submit_tag("rock.jpg", class: "img-style img-responsive", name: "image", value: "rock") %>
-      <%= image_submit_tag("paper.jpg", class: "img-style img-responsive", name: "image", value: "paper") %>
-      <%= image_submit_tag("scissors.jpg", class: "img-style img-responsive", name: "image", value: "scissors") %>
     </div>
+    <div class="col-xs-4">
+      <%= image_submit_tag("paper.jpg", class: "img-style img-responsive", name: "image", value: "paper") %>
+    </div>
+    <div class="col-xs-4">
+      <%= image_submit_tag("scissors.jpg", class: "img-style img-responsive", name: "image", value: "scissors") %>
+    </div>  
   </div>
 
   <%= hidden_field_tag(:user_name, @player_name) %>

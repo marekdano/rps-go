@@ -1,13 +1,13 @@
-<h1><%= @result_string%></h1>
+<h1 class="title"><%= @result_string%></h1>
 
 <div class="row">
-  <div class="col-xs-6 text-right">
-    <h5><%= @player_name %></h5>
+  <div class="col-xs-6 center">
+    <h4><%= @player_name %></h4>
     <%= image_tag "#{@user}.jpg", class: "img-responsive img-style" %> 
     <h2><%= @wins %></h2>
   </div>  
-  <div class="col-xs-6 text-left">
-    <h5>Computer</h5>
+  <div class="col-xs-6 center">
+    <h4>Computer</h4>
     <%= image_tag "#{@computer}.jpg", class: "img-responsive img-style" %>
     <h2><%= @losses %></h2>
   </div>

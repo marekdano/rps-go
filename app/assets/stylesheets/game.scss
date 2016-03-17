@@ -2,11 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);
+
+
+body {
+  padding-top: 70px;
+}
+
+.container {
+  max-width: 450px;
+}
+
+#font-Alegreya {
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+#font-Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  @extend #font-Alegreya;
+  font-weight: 600;
+}
+
+h3 {
+  @extend #font-Alegreya;
+  font-weight: 500;
+}
+
+h4, h5, h6, p {
+  @extend #font-Roboto;
+  font-weight: 400;
+}
+
 .img-style {
-  max-width: 200px;
   display: inline-block;
 }
 
 form.form-inline {
   display: inline-block;
+}
+ 
+.btn {
+  @media screen and (max-width: 768px) {
+    margin-top: 7px;
+  }
+}
+
+.title {
+  margin-bottom: 50px;
 }
