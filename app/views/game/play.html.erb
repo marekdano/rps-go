@@ -4,13 +4,16 @@
 <%= form_tag('compare', method: "get", class: "form-inline", role: "choose subject") do %>
   <div class="row">
     <div class="col-xs-4">
-      <%= image_submit_tag("rock.jpg", class: "img-style img-responsive", name: "image", value: "rock") %>
+      <%= image_tag("paper.jpg", class: "img-style img-responsive") %>
+      <%= submit_tag('rock', class: "image-title", :name => 'image', :value => 'rock') %>
     </div>
     <div class="col-xs-4">
-      <%= image_submit_tag("paper.jpg", class: "img-style img-responsive", name: "image", value: "paper") %>
+      <%= image_tag("paper.jpg", class: "img-style img-responsive") %>
+      <%= submit_tag('paper', class: "image-title", :name => 'image', :value => 'paper') %>
     </div>
     <div class="col-xs-4">
-      <%= image_submit_tag("scissors.jpg", class: "img-style img-responsive", name: "image", value: "scissors") %>
+      <%= image_tag("scissors.jpg", class: "img-style img-responsive") %>
+      <%= submit_tag('scissors', class: "image-title", :name => 'image', :value => 'scissors') %>
     </div>  
   </div>
 
